@@ -1,0 +1,267 @@
+*{box-sizing: border-box;}
+body{font-family: cursive; margin: 0; padding: 0;}
+.container{max-width: 1200px; margin: 30px auto; padding: 0 3%;}
+
+.row1{
+    display: flex;
+    width: 100%;
+    margin-bottom: 2.7rem;
+}
+.logo{
+    flex: 15%;
+}
+.top-nav{
+    flex: 60%;
+    margin-left: 25px;
+    font-size: 1.1rem;
+}
+.top-nav a{
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(69, 64, 64);
+    padding: 10px;
+}
+.top-nav a:hover{
+    color: blue;
+}
+.contact{
+    flex: 15%;
+    text-align: end;   
+}
+.button-a{
+    text-decoration: none;
+    display: inline-block;
+    background-color: dodgerblue;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 4px;
+}
+.button-a:hover{background-color: blue;}
+
+/*--------------------------------
+--------row2 starts here----------
+---------------------------------*/
+.row2{
+    width: 100%;
+    height: 40vh;
+    font-size: 1.4rem;
+    position: relative;
+    background: url(assets/main.jpeg) center/cover no-repeat;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+}
+@media screen and (max-height: 450px){
+	.row2{height: 40vw}
+}
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    letter-spacing: .15rem;
+}
+header h1, header h4{margin: 0;}
+
+/*--------------------------------
+--------row3 starts here----------
+---------------------------------*/
+.row3{
+    display: flex;
+}
+
+aside{flex: 20%;}
+main{flex: 80%;}
+aside h2, aside a{
+    display: block;
+}
+aside a{
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 6px 0;
+    color: rgb(109, 105, 105);
+}
+aside a:hover{color: blue;}
+
+.main-flex{
+    display: flex; flex-wrap: wrap;
+    justify-content: space-between;
+}
+.card{
+    color: rgb(109, 105, 105);
+    width: 32%;
+    border-radius: 4px;
+}
+.card h2{margin: 5px 0 0 0;}
+.card p{margin: 5px 0 20px 0;}
+.img-holder{
+    width: 100%;
+    height: 19vh;
+    border-radius: 4px;    
+}
+@media screen and (max-height: 450px){
+	.img-holder{height: 19vw}
+}
+
+#carne-asada{background: url(assets/recipe-1.jpeg) center/cover no-repeat;}
+#greek-ribs{background: url(assets/recipe-2.jpeg) center/cover no-repeat;}
+#veg-soup{background: url(assets/recipe-3.jpeg) center/cover no-repeat;}
+#banana-cake{background: url(assets/recipe-4.jpeg) center/cover no-repeat;}
+
+/*--------------------------------
+--------footer starts here--------
+---------------------------------*/
+footer{
+   background-color: #222222;
+   color: white;
+   padding: 15px;
+   text-align: center;
+}
+footer span{color: dodgerblue;}
+#love{font-size: 1.5rem; }
+
+@media screen and (max-width: 1000px){
+    .row3{
+        flex-direction: column;
+        width: 100%;
+    }
+    main{order: -1;}
+    aside h2{margin-bottom: 8px;}
+    aside a{display: inline-block; margin-right: 20px;}
+}
+
+@media screen and (max-width: 900px){
+    .row1{flex-direction: column; align-items: center;}
+    .row1 > div{width:max-content;}
+    .top-nav{margin: 0;}
+    .contact{text-align: left;}
+    .card{width: 48.5%;}
+}
+
+@media screen and (max-width: 580px) {
+    .container{padding: 0 4%;}
+    .card{width: 100%;}
+    .img-holder{height: 28vh;}
+}
+
+/*--------------------------------
+------About Page starts here------
+---------------------------------*/
+.row2nd{
+    display: flex;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+.row2nd .contact{text-align: left;}
+.row2nd .left{
+    flex: 55%;
+    padding: 0 45px 45px 0;
+}
+.row2nd .right{
+    flex: 45%;
+    background: url(assets/about.jpeg) center/cover no-repeat;
+    border-radius: 4px;
+    min-height: 42vh;
+}
+@media screen and (max-height: 450px){
+	.row2nd .right{min-height: 42vw}
+}
+
+.center{text-align: center;}
+.fixed{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.about .main-flex{
+    display: flex; flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1050px){
+    .row2nd{flex-direction: column;}
+}
+@media screen and (max-width: 900px) {
+    .card{width: 49%;}
+}
+@media screen and (max-width:580px) {
+    .about .main-flex{flex-direction: column;}
+    .card{width: 100%;}
+}
+
+/*--------------------------------
+-----Recipes Page starts here-----
+---------------------------------*/
+@media screen and (max-width: 900px){
+    .fixed{position: static;}
+    .tag{width: 45%;}
+}
+
+/*--------------------------------
+------Tags Page starts here-------
+---------------------------------*/
+.tags{
+    display: flex;  flex-wrap: wrap; text-align: center;
+}
+.tag h2{margin: 0 0 7px 0;}
+.tag{
+    padding: 10px 0;
+    width: 30.6%;
+    margin: 1.33%;
+    background-color: gray;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+.tag:hover{
+    background-color: white; cursor: pointer;
+}
+@media screen and (max-width: 900px){
+    .tag{width: 45%;}
+}
+@media screen and (max-width: 600px){
+    .tag{width: 100%;}
+}
+
+/*--------------------------------
+------Contact Page starts here-------
+---------------------------------*/
+.contact-header{display: flex;}
+.header-text{
+    flex: 60%;
+    text-align: left;
+    padding: 0 7% 0 1%;
+}
+.form-div{
+    flex: 40%;
+    background-color: white;
+    padding: 3%;
+    border-radius: 4px;
+    text-align: left;
+}
+form input, form textarea, form button{
+    width: 100%; background-color: rgb(248, 246, 246);
+    border-radius: 4px; border-style: none;
+}
+form input{height: 30px;}
+form textarea{height: 100px;}
+.btn{
+    color: white;
+    background-color: dodgerblue;
+    padding: 7px;
+    font-size: 1.1rem;
+}
+.btn:hover{
+    background-color: blue;
+}
+
+@media screen and (max-width: 900px){
+    .contact-header{flex-direction: column;}
+}

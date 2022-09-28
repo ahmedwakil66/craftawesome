@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimplyRecipes - Tags</title>
+   
+
+    <style>
+        .container{max-width: 1200px; margin: 0 auto;}
+        .tags{ gap: 15px;
+    display: flex;  background-color: beige; flex-wrap: wrap;
+     text-align: center;
+}
+.tag h2{margin: 0 0 7px 0;}
+.tag{
+    width: 30%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    background-color: gray;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+.tag:hover{
+    background-color: white; cursor: pointer;
+}
+@media screen and (max-width: 900px){
+    .tag{width: 45%;}
+}
+@media screen and (max-width: 600px){
+    .tag{width: 100%;}
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="tags">
+            <div class="tag">
+                <h2>Beef</h2> 1 recipe
+            </div>
+            <div class="tag">
+                <h2>Breakfast</h2> 2 recipes
+            </div>
+            <div class="tag">
+                <h2>Carrots</h2> 3 recipes
+            </div>
+            <div class="tag">
+                <h2>Dinner</h2> 4 recipes
+            </div>
+            <div class="tag">
+                <h2>Food</h2> 1 recipe
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="position: fixed; width:100%; bottom:0">&copy; 2022 <span>SimplyRecipes</span> Built with <span id="love">♥</span> by <span>Wakil Ahmed</span></footer>
+
+</body>
+</html>
