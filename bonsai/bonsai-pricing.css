@@ -1,0 +1,266 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+:root{--black: #4c4d5f; --green: #01B289; --white: #FBFCFF}
+html{font-size: 18px; font-family: Arial, Helvetica, sans-serif; color: var(--black);}
+.wraper{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+.margin-bottom-5{margin-bottom: 5px;}
+.padding-bottom{padding-bottom: 15px;}
+
+.nav-link a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 15px;
+    color: var(--black);
+}
+.nav-link a:hover, .dropdown-items a:hover{
+    color: brown;
+}
+.dropdown-items a{
+    text-decoration: none;
+    display: block;
+    color: var(--black);
+    width: 300px;
+    text-align: justify;
+}
+.dropdown-holder{
+    position: relative; display: inline-block;
+}
+.dropdown-items{
+    background-color: white;
+    box-shadow: 0 0 1px;
+    border-radius: 5px;
+    padding: 0 12px 15px 12px;
+    position: absolute;
+    visibility: hidden;
+}
+.dropdown-items p{border-bottom: 1px solid;}
+.border-down {border-bottom: 1px solid;}
+.dropdown-holder:hover .dropdown-items{visibility: visible;}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    padding: 1rem 0;
+    flex-wrap: wrap; z-index: 9999999;
+    position: sticky; top: 0; background-color: white;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+.logo img{
+    height: 1.7rem;
+}
+button{
+    padding: .8em 1.4em;
+    background-color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: .25em;
+    color: white;
+    font-weight: 600;
+}
+button:hover{background-color: #00A37E; cursor: pointer;}
+.log-in{
+    background-color: white;
+    color: var(--green);
+    border: 1px solid var(--green);
+}
+.log-in:hover{
+    background-color: var(--green);
+    color: white;
+}
+/*Header ends here*/
+
+
+
+/*Plans and Price starts here*/
+.plan-price{
+    min-height: 100px;
+    max-width: 490px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background: url(2monthfree.svg) no-repeat;
+    background-position: right;
+}
+.toggle{
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    border-radius: 12.5px;
+    cursor: pointer; background-color: rgb(192, 228, 192);
+}
+.toggle-input{
+    display: none;
+}
+.toggle-fill{
+    position: relative;
+    width: 50px;
+    height: 25px;
+    border-radius: 12.5px; transition: .5s;
+}
+.toggle-input:checked ~ .toggle-fill{background: var(--green);}
+.toggle-fill::after{
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 12.5px; transition: .3s;
+    top: 0;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+}
+.toggle-input:checked ~ .toggle-fill::after{
+    transform: translateX(25px);
+}
+/*Plans and Price ends here*/
+
+
+/*Card style starts here*/
+.wide-btn{width: 100%; padding-top: 1.2rem; padding-bottom: 1.2rem; margin-top: 1rem;}
+.card{background-color: var(--white); padding: 2.5rem 2rem;
+    border: 2px solid #F5F5F8; border-radius: 4px;}
+
+.card-header-text p{margin: 7px 0 17px 0;}
+.price-sign, .price-amount, .price-period { height: 2.8rem; margin-right: 10px;}
+.card-header-price{
+    display: flex;
+    padding-bottom: .5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--green);
+}
+.price-sign{font-size: 1.5rem; padding-top: 7px;}
+.price-amount{font-size: 3rem; font-weight: 600;}
+.price-period{display: flex; align-items: flex-end; font-size: 1.2rem;}
+
+.card-body ul{list-style: none;}
+.card-body ul li:before {
+    content: '✓';
+    color: var(--green);
+    font-weight: 600;
+    margin-right: .7rem;
+  }
+.card-body li{list-style-position: inside; margin: 16px 0;}
+/*Card style ends here*/
+
+
+
+/* Main starts here */
+.main{
+    display: grid;
+    gap: 1.5rem;
+}
+.hero{position: relative; overflow: hidden;}
+.hero-text{
+    position: absolute; color: white;
+    font-size: small;
+    background-color: var(--green);
+    transform: rotate(45deg);
+    padding: 10px 70px;
+    right: -65px;
+    top: 38px;
+}
+
+
+@media screen and (min-width: 970px) {
+    .plan-price{margin-bottom: 50px;}
+    .main{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .card{display: flex; flex-direction: column; justify-content: space-between;}
+}
+/* Main Ends here */
+
+
+
+/* Extra starts here */
+.big-text{font-size: 1.6rem; font-weight: 600;}
+.small-text{font-size: .8rem;}
+.extra-text a{text-decoration: none; color: var(--green); font-size: .7rem;
+     font-weight: 600; margin-left: 2px;}
+
+.extra-holder{margin-top: 2rem; display: grid; gap: 1.5rem;}
+.extra-holder h2{text-align: center; margin-top: 3rem;}
+.extra{
+    padding: 2.5rem 2rem;
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+}
+.extra p{margin-top: .4rem;}
+.anim{
+    color: var(--green);
+}
+.learn-more{display: inline-block;}
+.learn-more:hover{
+    transition: .7s;
+    font-weight: 600;
+}
+/* Extra ends here */
+
+
+/*Banner starts here*/
+.banner{max-width: 800px; margin: 0 auto;
+    padding: 20px 50px; margin-top: 3rem;
+    background-color: var(--white); display: flex;
+    justify-content: space-between;
+    align-items: center; gap: 10px;
+}
+.green-text{color: var(--green);}
+/*Banner ends here*/
+
+
+/*Accordion starts here*/
+.accordion-wraper{
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.accordion-wraper h2{color: var(--green); text-align: center; margin-bottom: 25px;}
+.accordion-item{
+    width: 100%;
+    padding: 15px 0;
+}
+.accordion-link{
+    text-decoration: none; opacity: .9;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--black);
+}
+.accordion-link:hover{color: var(--green);}
+.accordion-link .bx-chevron-up-circle{display: none;}
+.answer p{padding: 10px 0; text-align: justify;}
+
+.answer{
+    max-height: 0px; opacity: .9;
+    overflow: hidden;
+    /* transition: max-height 650ms; */
+}
+.accordion-item:target .answer{
+    max-height: 40rem;
+}
+.accordion-item:target .accordion-link .bxs-chevron-down-circle{display: none;}
+.accordion-item:target .accordion-link .bx-chevron-up-circle{display: block;}
+/*Accordion ends here*/
+
+
+/*Footer strats here*/
+.green-text{color: var(--green);}
+.footer{
+    text-align: center;
+    font-weight: 600;
+    padding: 15px 0;
+    margin-top: 250px;
+}
+.semi-big-text{font-size: 1.3rem;}
