@@ -1,0 +1,16 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+body{background-image: linear-gradient(to right, #393939, gray, gray, gray, gray, gray, #393939);}
+.wraper{display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;
+    max-width: 71%; margin: 2rem auto;}
+.card{
+    max-width: 350px; border: 2px solid black; text-decoration: none;
+    background-color: bisque; display: block; color: black; transition: .3s;
+}
+.card p{
+    font-size: 1.5rem; font-weight: bold; text-align: center;
+    padding: .5rem 0; letter-spacing: 1px; opacity: .8;
+}
+.card:hover p{
+    opacity: 1;
+}
+.card:hover{transform: scale(1.05);}
