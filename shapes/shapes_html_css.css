@@ -1,0 +1,24 @@
+.row{max-width: 485px; display: flex; gap: 20px; flex-wrap: wrap;
+    margin: 0 auto; margin-bottom: 20px;}
+.box{width: 80px; height: 80px; background-color: gray; display: flex;
+    justify-content: center; align-items: center;}
+.one, .five, .three, .six{border-radius: 50%;}
+
+.four{clip-path: polygon(50% 0, 100% 50%, 100% 100%, 50% 100%, 0 50%);}
+.seven{clip-path: polygon(0 0, 100% 0, 100% 70%, 20% 70%, 0 100%);}
+.nine{clip-path: polygon(0 0, 100% 50%, 0 100%);}
+.two{clip-path: polygon(0 0, 50% 0, 100% 50%, 50% 100%, 0 50%);}
+.eight{clip-path: polygon(0 0, 50% 0, 100% 50%, 100% 100%, 50% 100%, 0 50%);}
+
+.two, .four, .seven, .eight, .nine{border-radius: 4px;}
+footer{justify-content: center; background-color: gray; padding: 5px 0;}
+/*=============================================================*/
+.inside-1{width: 50px; height: 50px; border: 1px solid rgb(102, 95, 95); border-radius: 50%; display: flex; justify-content: center; align-items: center;}
+.inside--2{width: 30px; height: 30px; border: 1px solid rgb(102, 95, 95); border-radius: 50%;}
+.six{position: relative;}
+.six::before{content: ''; position: absolute; width: 100%; height: 1px; background-color: rgb(102, 95, 95);}
+.six::after{content: ''; position: absolute; width: 100%; height: 1px; background-color: rgb(102, 95, 95); transform: rotate(90deg);}
+
+.ten{position: relative;}
+.ten::before{content: ''; position: absolute; width: 138%; height: 1px; background-color: rgb(102, 95, 95); transform: rotate(-45deg);}
+.ten::after{content: ''; position: absolute; width: 138%; height: 1px; background-color: rgb(102, 95, 95); transform: rotate(45deg);}
