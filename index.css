@@ -14,3 +14,13 @@ body{background-image: linear-gradient(to right, #393939, gray, gray, gray, gray
     opacity: 1;
 }
 .card:hover{transform: scale(1.05);}
+
+.card:hover{transform: scale(1.05);}
+@media screen and (max-width: 1115px) {
+    .wraper{max-width: 95%;}
+    .card{max-width: 300px;}
+}
+@media screen and (max-width: 680px) {
+    .wraper{max-width: 95%;}
+    .card{max-width: 350px;}
+}
