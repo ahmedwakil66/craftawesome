@@ -165,7 +165,7 @@ nav{
 }
 
 @media screen and (max-width: 500px) {
-    .mobile-nav-content, .mobile-nav-content2{width: 80vw;}
+    .mobile-nav-content, .mobile-nav-content2{width: 80vw; font-family: Arial, Helvetica, sans-serif;}
 }
 
 @media screen and (min-width:1000px) {
