@@ -164,6 +164,10 @@ nav{
     box-shadow: 0 0 1px;
 }
 
+@media screen and (max-width: 500px) {
+    .mobile-nav-content, .mobile-nav-content2{width: 80vw;}
+}
+
 @media screen and (min-width:1000px) {
     .mobile-nav-content, .mobile-nav-content2{width: 0;}
     .mobile-nav{display: none;}
