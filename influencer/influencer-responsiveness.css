@@ -3,16 +3,64 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .hero, .featured{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero_text.item-1, .featured_text.item-2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item-2{
+        order: -1;
+    }
 }
 
 
 @media screen and (max-width: 576px) {
+    .container{
+        margin: 0 auto;
+        padding: 25px 15px;
+    }
+
+    .hero_title{
+        font-size: 28px;
+    }
+
+    .hero_description{
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .hero button{
+        font-weight: 500;
+    }
+
+    .hero_photo.item-2{
+        width: 257px;
+        height: 257px;
+    }
+
+    .logos{
+        gap: 10px 15px;
+    }
+
+    .collection{
+        padding: 0px;
+    }
+
     .collection_header{
         font-size: 16px;
+        margin-bottom: 20px;
     }
 
     .cards{
         display: grid;
+        gap: 15px;
         grid-template-columns: repeat(1, 1fr);
     }
 
@@ -31,5 +79,22 @@
 
     .card_description{
         font-weight: 400;
+    }
+
+    .featured_title{
+        font-size: 24px;
+    }
+
+    .footer_title{
+        font-size: 16px;
+    }
+
+    .footer_description{
+        font-size: 12px;
+    }
+
+    footer .fa-brands{
+        margin: 10px 4px;
+        font-size: 12px;
     }
 }

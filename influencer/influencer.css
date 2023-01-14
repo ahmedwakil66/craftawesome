@@ -15,16 +15,69 @@
     --card-title: #18191F;
     --card-description: #787885;
     --card-rating: #5E6366;
+    --btn-primary: #E02C6D;
+    --featured-title: #0A0826;
+    --featured-description: #6C6C6C;
+    --footer-description: #D9DBE1;
 }
 
 body {
-    /* font-family: 'Manrope', sans-serif; */
     font-family: 'Poppins', sans-serif;
 }
 
 .container {
     max-width: 1100px;
     margin: 50px auto;
+}
+
+.btn-primary{
+    color: white;
+    outline: none;
+    border: none;
+    font-weight: 700;
+    padding: 10px 24px;
+    background-color: var(--btn-primary);
+}
+
+/* Hero Styles Starts here */
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero_title{
+    max-width: 582px;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--collection-header);
+}
+
+.hero_description{
+    max-width: 505px;
+    font-weight: 600;
+    margin: 16px 0;
+}
+
+.hero button{
+    border-radius: 40px;
+}
+
+.hero_photo.item-2{
+    padding: 15px;
+    background-image: url('images/Circle\ design.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+
+/* Brand Logos Style Starts here */
+.logos{
+    display: flex;
+    gap: 20px 60px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 
@@ -94,4 +147,53 @@ body {
     text-align: end;
     margin-top: 50px;
     color: rgba(224, 44, 109, 0.87);
+}
+
+
+/* Featured Styles Starts here*/
+.featured{
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.featured_title{
+    max-width: 610px;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--featured-title);
+}
+
+.featured_description{
+    max-width: 501px;
+    font-weight: 700;
+    margin: 16px 0;
+    color: var(--featured-description);
+}
+
+
+/* Footer Styles Starts here */
+
+footer{
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+    background-color: #0A0826;
+}
+
+.footer_title{
+    font-size: 24px;
+    font-size: 700;
+}
+
+.footer_description{
+    font-weight: 700;
+    margin: 3px 0;
+    color: var(--footer-description);
+    font-family: 'Manrope', sans-serif;
+}
+
+footer .fa-brands{
+    margin: 17px 8px;
 }
