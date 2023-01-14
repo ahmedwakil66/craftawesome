@@ -1,4 +1,23 @@
+@media screen and (min-width: 993px) {
+    
+}
+
+
 @media screen and (max-width: 992px) {
+
+    header.container{
+        margin: 0 auto 20px;
+        padding: 30px 15px;
+    }
+
+    .nav-web{
+        display: none;
+    }
+
+    .nav-mobile{
+        display: flex;
+    }
+
     .cards{
         display: grid;
         grid-template-columns: repeat(2, 1fr);

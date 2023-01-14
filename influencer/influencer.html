@@ -10,8 +10,33 @@
     <link rel="stylesheet" href="influencer-responsiveness.css">
 </head>
 <body>
-    <header>
-
+    <header class="container">
+        <nav class="nav-web">
+            <p class="nav_title"><a href="#">Influencer products</a></p>
+            <ul class="nav_ul">
+                <li class="nav_list"><a href="#">Home</a></li>
+                <li class="nav_list"><a href="#">Products</a></li>
+                <li class="nav_list"><a href="#">Sign up</a></li>
+                <li class="nav_list"><a href="#">Log in</a></li>
+                <li class="nav_list"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li class="nav_list"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            </ul>
+        </nav>
+        <nav class="nav-mobile" id="nav-mobile">
+            <div class="nav_ham_open" id="hamB"><img src="images/hamB.png"></div>
+            <div class="nav_ham_close" id="hamC"><img src="images/hamC.png"></div>
+            <p class="nav_title"><a href="#">Influencer products</a></p>
+            <li class="nav_list"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        </nav>
+        <nav class="nav-mobile-toggle" id="nav-mobile-toggle">
+            <ul class=" nav-mobile-items" style="padding-bottom: 15px;">
+                <li class="nav_list" style="margin-top: 15px;"><a href="#">Home</a></li>
+                <li class="nav_list"><a href="#">Products</a></li>
+                <li class="nav_list"><a href="#">Sign up</a></li>
+                <li class="nav_list"><a href="#">Log in</a></li>
+                <li class="nav_list"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li> 
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -193,6 +218,7 @@
         </section> <!-- Featured Section Starts  -->
     </main>
 
+    <!-- Footer Starts -->
     <footer>
         <section>
             <p class="footer_title">Influencer products</p>
@@ -205,6 +231,28 @@
                 <i class="fa-brands fa-youtube"></i>
             </div>
         </section>
-    </footer>
+    </footer> <!-- Footer Ends -->
+
+
+
+    <script>
+        let header = document.querySelector('header');
+        let hamB = document.getElementById('hamB');
+        let hamC = document.getElementById('hamC');
+        let responsiveMenu = document.getElementById('nav-mobile-toggle');
+        
+        hamB.addEventListener('click', ()=>{
+            hamC.style.display = 'block';
+            hamB.style.display = 'none';
+            responsiveMenu.style.display = 'block';
+            header.style.backgroundColor = '#0a08266a';
+        })
+        hamC.addEventListener('click', ()=>{
+            hamC.style.display = 'none';
+            hamB.style.display = 'block';
+            responsiveMenu.style.display = 'none';
+            header.style.backgroundColor = '';
+        })
+    </script>
 </body>
 </html>

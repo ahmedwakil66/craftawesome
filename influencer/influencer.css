@@ -28,6 +28,7 @@ body {
 .container {
     max-width: 1100px;
     margin: 50px auto;
+    padding: 0 15px;
 }
 
 .btn-primary{
@@ -36,8 +37,82 @@ body {
     border: none;
     font-weight: 700;
     padding: 10px 24px;
+    cursor: pointer;
+    border-radius: 5px;
     background-color: var(--btn-primary);
 }
+
+
+/* Header Styles Starts here */
+
+header > nav{
+    margin-top: 0;
+}
+
+.nav_title{
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--collection-header);
+}
+
+.nav-web{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-web ul{
+    display: flex;
+    gap: 34px;
+}
+
+nav li{
+    font-weight: 600;
+    list-style: none;
+}
+
+nav a{
+    display: block;
+    color: var(--collection-header);
+    text-decoration: none;
+}
+
+.nav-web li:hover{
+    transform: scale(1.1);
+}
+
+/* Mobile NavBar Styles */
+
+.nav-mobile{
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-mobile img{
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+}
+
+.nav-mobile-items{
+    list-style: none;
+    text-align: center;
+}
+
+.nav-mobile-items li{
+    padding: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.209);
+}
+
+.nav-mobile-items a:hover{
+    transform: scale(1.1);
+}
+
+.nav_ham_close, .nav-mobile-toggle{
+    display: none;
+}
+
 
 /* Hero Styles Starts here */
 .hero{
