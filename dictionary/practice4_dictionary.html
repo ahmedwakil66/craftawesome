@@ -173,10 +173,11 @@
                     if (phonetic.audio !== '') {
                         dicAudio.src = phonetic.audio;
                         dicPhonetic.textContent = phonetic.text;
-                    } else if (index === phonetics.length - 1) {
-                        dicAudioDiv.style.display = 'none';
                     }
                 })
+                if(dicAudio.src === ''){
+                    dicAudioDiv.style.display = 'none'
+                }
                 //safeguard for phonetic text
                 if (dicPhonetic.textContent === '') {
                     dicPhonetic.textContent = phonetics[0].text;
