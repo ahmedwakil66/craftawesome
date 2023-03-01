@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary</title>
+    <link rel="stylesheet" href="practice4_dictionary.css">
+</head>
+
+<body>
+    <section id="dictionary-wrapper">
+        <div id="search-main">
+            <input id="dic-search-input" type="text" placeholder="type here">
+            <button id="dic-search-button">Search</button>
+        </div>
+        <div id="dic-loader">
+            <img src="https://raw.githubusercontent.com/ahmedwakil66/ahmedwakil66/main/assets/images/gif/loading_bean-eater-black-blue.gif"
+                alt="Loading..." width="90px">
+        </div>
+        <div id="dic-header">
+            <div id="dic-word-main">
+                <h1 id="dic-word">Dictionary v2</h1>
+                <p id="dic-phonetic">phonetic</p>
+            </div>
+            <div id="dic-play-main" title="click to play audio">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#9A41E9" class="bi bi-play-fill"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                </svg>
+                <audio id="dic-audio" src="https://api.dictionaryapi.dev/media/pronunciations/en/hello-uk.mp3"></audio>
+            </div>
+        </div>
+        <div id="dic-body">
+            <!-- <div class="dic-part">
+                <div class="dic-part_title">noun</div>
+                <div class="dic-part_meaning">
+                    <p class="dic-meaning">Meaning</p>
+                    <ul class="dic-ul">
+                        <li>definitions here</li>
+                    </ul>
+                    <div class="syno-anto-div">
+                        <p class="dic-meaning">Synonyms</p>
+                        <div class="dic-synonyms">Synonyms here</div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div id="dic-source">
+            <p>data collected from - <a href="https://dictionaryapi.dev/">dictionary-API</a></p>
+            <p>developed by - <a href="https://github.com/ahmedwakil66">Wakil Ahmed</a></p>
+        </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- javascript codes goes here -->
+    <script>
+        const dicSearchInput = document.getElementById('dic-search-input');
+        const dicSearchBtn = document.getElementById('dic-search-button');
+        const dicLoader = document.getElementById('dic-loader');
+        const dicWord = document.getElementById('dic-word');
+        const dicPhonetic = document.getElementById('dic-phonetic');
+        const dicAudioDiv = document.getElementById('dic-play-main');
+        const dicAudio = document.getElementById('dic-audio');
+        const dicBody = document.getElementById('dic-body');
+
+        //show loader and initiate data fetch then calling processDicHeader
+        function fetchDicData() {
+            dicLoader.style.display = 'block';
+            console.log(dicSearchInput.value);
+            fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${dicSearchInput.value}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (!data.title) {
+                        dicAudioDiv.style.display = 'flex';
+                        processDicHeader(data[0])
+                    } else {
+                        dicAudioDiv.style.display = 'none';
+                        dicWord.textContent = data.title;
+                        dicPhonetic.textContent = data.message;
+                        dicBody.innerText = data.resolution;
+                    }
+                })
+                .catch(err => console.log(err));
+        }
+
+        //writing information to dic header and calling processParts to write dic body
+        function processDicHeader(data) {
+            dicWord.textContent = 'Searching...';
+            dicPhonetic.textContent = '';
+            try {
+                dicWord.textContent = data.word;
+                dicPhoneticAudioHandler(data);
+            }
+            catch (err) {
+                console.log(err);
+            }
+            //initiate next phase
+            processParts(data);
+        }
+
+        //main function that write information on dic body
+        function processParts(data) {
+            dicBody.innerHTML = '';
+            console.log(data);
+            data.meanings.forEach(part => {
+                const dicPart = document.createElement('div');
+                dicPart.classList.add('dic-part');
+
+                const title = document.createElement('div');
+                title.classList.add('dic-part_title');
+                title.innerText = part.partOfSpeech;
+                dicPart.appendChild(title);
+
+                const meanings = document.createElement('div');
+                meanings.classList.add('dic-part_meaning');
+                dicPart.appendChild(meanings);
+
+                meanings.appendChild(createHeadline('Meaning'));
+
+                const ul = document.createElement('ul');
+                ul.classList.add('dic-ul');
+                meanings.appendChild(ul);
+
+                part.definitions.forEach(single => {
+                    const li = document.createElement('li');
+                    li.textContent = single.definition;
+                    ul.appendChild(li);
+                })
+
+                //handling synonyms and antonyms words when available
+                handleSynonymsAntonyms(part, meanings, 'synonyms', 'Synonyms');
+                handleSynonymsAntonyms(part, meanings, 'antonyms', 'Antonyms');
+           
+                dicBody.appendChild(dicPart);
+            })
+            dicLoader.style.display = 'none';
+        }
+
+        //utility function for common use
+        function createHeadline(text) {
+            const headline = document.createElement('p');
+            headline.classList.add('dic-meaning');
+            headline.innerText = `${text}`;
+            return headline;
+        }
+
+        //handling synonyms and antonyms
+        function handleSynonymsAntonyms(part, meanings, who, headline){
+            if(part[who].length > 0){
+                    const Div = document.createElement('div');
+                    Div.classList.add('syno-anto-div');
+                    meanings.appendChild(Div);
+
+                    Div.appendChild(createHeadline(headline));
+
+                    const P = document.createElement('p');
+                    P.classList.add('dic-synonyms-antonyms')
+                    Div.appendChild(P);
+
+                    P.textContent = part[who].join(', ');
+                    P.textContent += '.';
+                }
+        }
+
+        // handling multiple possible source of phonetic and audio
+        function dicPhoneticAudioHandler(data) {
+            try {
+                const phonetics = data.phonetics;
+                phonetics.forEach((phonetic, index) => {
+                    if (phonetic.audio !== '') {
+                        dicAudio.src = phonetic.audio;
+                        dicPhonetic.textContent = phonetic.text;
+                    } else if (index === phonetics.length - 1) {
+                        dicAudioDiv.style.display = 'none';
+                    }
+                })
+                //safeguard for phonetic text
+                if (dicPhonetic.textContent === '') {
+                    dicPhonetic.textContent = phonetics[0].text;
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+
+        //Click search button or press Enter to initiate search
+        dicSearchBtn.addEventListener('click', fetchDicData);
+        dicSearchInput.addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                fetchDicData();
+            }
+        })
+
+        // play audio function
+        const dicPlayBtn = document.getElementById('dic-play-main');
+        dicPlayBtn.addEventListener('click', () => {
+            dicAudio.play(true);
+        })
+    </script>
+</body>
+
+</html>
