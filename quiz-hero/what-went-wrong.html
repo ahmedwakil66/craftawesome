@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What went wrong?</title>
+    <link rel="stylesheet" href="quiz.css">
+    <style>
+        .question{
+            font-weight: 700;
+        }
+        .correct-answers{
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .correct-answers article > p{
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <p class="logo"><span class="firstW">Quiz</span> <span class="lastW">Hero</span></p>
+        <p class="welcome">Welcome Player!</p>
+    </nav>
+
+    <section class="container mt-sec">
+        <h1 class="badge-1">Correct answers for the quiz that you got wrong is given below:</h1>
+        <div id="correctAnswers" class="correct-answers">
+            <!-- <article>
+                <div class="question">
+                    <p><span class="qNo">1</span></p>
+                    <p>question</p>
+                </div>
+                <p>Correct answer:</p>
+                <p>description</p>
+            </article> -->
+        </div>
+    </section>
+
+    <footer class="ta-center">
+        <p>Copyright © 2023 Craft Awesome. All Rights Reserved.</p>
+    </footer>
+    
+
+    <script>
+        const userGotWrongQuiz = JSON.parse(localStorage.getItem('ugw_QuizData'));
+        const correctAnswers = document.getElementById('correctAnswers');
+
+        if(userGotWrongQuiz.length > 0){
+            userGotWrongQuiz.forEach(quiz => {
+                const{id, question, answer, description} = quiz;
+
+                const article = document.createElement('article');
+                article.innerHTML = `
+                    <div class="question">
+                        <p><span class="qNo">${id}</span></p>
+                        <p>${question}</p>
+                    </div>
+                    <p><span class="badge-1">Correct answer:</span> ${answer}</p>
+                    <p><span class="badge-1">Description:</span> ${description}</p>
+                `;
+
+                correctAnswers.appendChild(article);
+            })
+        } else{
+            correctAnswers.parentElement.innerHTML = '<h1><span class="badge-1">Nothing wrong here, You got everything right. <b>Congratulation!</b></span></h1';
+        }
+    </script>
+</body>
+</html>

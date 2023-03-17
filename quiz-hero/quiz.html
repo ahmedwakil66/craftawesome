@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Hero</title>
+    <link rel="stylesheet" href="quiz.css">
+    <script src="globalVar.js" defer></script>
+    <script src="functions.js" defer></script>
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <nav id="nav">
+        <p class="logo"><span class="firstW">Quiz</span> <span class="lastW">Hero</span></p>
+        <p class="welcome">Welcome Player!</p>
+    </nav>
+
+    <main class="container mt-sec ls-n1">
+        <!-- Rules section starts -->
+        <section id="rulesSection" class="rules">
+            <h1 class="ta-center">Welcome to Quiz Hero</h1>
+
+            <div class="ta-center mt-part">
+                <h3><u>Quiz Rules:</u></h3>
+                <p class="short-info">Please read all the rules and steps before start. </p>
+            </div>
+
+            <div class="mt-part rule">
+                <p><span class="badge-1">Step 1:</span> Click on the <u><b>Start Quiz</b></u> button below.</p>
+                <p><span class="badge-1">Step 2:</span> After clicking Start button, you will see a page with 3s count
+                    down, wait until the count is over! </p>
+                <p><span class="badge-1">Step 3:</span> You will see the questions with 4 options for each, and counter
+                    will start and which will count your exam time. </p>
+                <p><span class="badge-1">Step 4:</span> You have to select the correct answer, and you have 60 seconds
+                    to answer 6 questions. </p>
+                <p><span class="badge-1">Step 5:</span> Click on the submit quiz button, when you are done with all the
+                    answers. </p>
+            </div>
+
+            <div class="mt-part ta-center">
+                <button id="startQuizBtn" class="btn-primary">Start Quiz!</button>
+            </div>
+        </section> <!-- Rules section ends -->
+
+
+        <!-- Quiz Section starts -->
+        <section id="quizSection" class="container mt-sec">
+            <!-- Quiz header -->
+            <div class="quiz-header md-col">
+                <div>
+                    <p class="short-info">Attention! You have 60 seconds to answer 6 questions. Please keep an eye on
+                        the timer and make sure to answer all questions before time runs out.</p>
+                </div>
+                <div>time</div>
+            </div>
+
+            <!-- Quiz body -->
+            <div id="quizBody" class="quiz-body mt-sec">
+                <!-- <article>
+                    <div class="question">
+                        <p><span class="qNo">1</span></p>
+                        <p>question</p>
+                    </div>
+                    <div class="options">
+                        <p>Option 1</p>
+                        <p>Option 2</p>
+                        <p>Option 3</p>
+                        <p>Option 4</p>
+                    </div>
+                </article> -->
+            </div>
+
+            <!-- quiz submit button -->
+            <section id="submitSection" class="mt-sec ta-center">
+                <button id="submitAnsBtn" class="btn-primary">SUBMIT ANSWERS</button>
+            </section>
+
+        </section> <!-- Quiz Section ends -->
+
+
+
+        <!-- result section starts-->
+        <section id="resultSection" class="container mt-sec ta-center">
+            <div class="core-result">
+                <p id="resultGradeP">excellent</p>
+                <p id="resultMarksP">1/5</p>
+                <p id="resultTimeP"></p>
+                <p id="retakeTest"><button onclick="location.reload()">Retake Test</button></p>
+                <p id="whatWentWrong"><button id="whatWentWrongBtn" onclick="location.assign('./what-went-wrong.html')">What went wrong?</button></p>
+            </div>
+
+            <div id="historySection" class="history-section mt-sec ta-center">
+                <h3>Previous Results</h3>
+                <table id="historyTable">
+                    <tr>
+                        <th>Marks</th>
+                        <th>Grade Messages</th>
+                        <th>Time</th>
+                    </tr>
+                </table>
+                <a id="clearHistory">Clear History</a>
+            </div>
+        </section> <!-- result section  ends-->
+    </main>
+
+    <footer class="ta-center">
+        <p>Copyright © 2023 Craft Awesome. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Countdown Div starts -->
+    <div id="countdownDiv">
+        <p><span id="count">3</span>s</p>
+        <p>Quiz is starting</p>
+    </div> <!-- Countdown Div ends -->
+</body>
+
+</html>
