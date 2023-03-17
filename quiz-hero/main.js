@@ -26,6 +26,8 @@ submitAnsBtn.addEventListener('click', () => {
 
     //validating given answers
     if (confirm('Are you sure to proceed?')) {
+        quizTimer(false);
+
         for (key in givenAnswers) {
             const givenAnswer = givenAnswers[key];
             const datum = quizData.find(datum => datum.id == key);
@@ -70,7 +72,7 @@ submitAnsBtn.addEventListener('click', () => {
     }
     userGotWrong();
     loadFromLocal();
-    saveToLocal(marks, gradeText);
+    saveToLocal(marks, gradeText, timerDiv.textContent);
 
     //showing or hiding particular section
     quizSection.style.display = 'none';
@@ -92,7 +94,8 @@ function saveToLocal(marks, gradeText, time){
 
     let liveResult = {
         marks : `${marks}/${totalQuestions}`,
-        gradeText : gradeText
+        gradeText : gradeText,
+        time : time
     }
 
     let savedResult = JSON.parse(localStorage.getItem('results'));
@@ -129,7 +132,7 @@ function loadFromLocal(){
                 <tr>
                     <td>${marks}</td>
                     <td>${gradeText}</td>
-                    <td>??</td>
+                    <td>${time}</td>
                 </tr>
             `;
         })
