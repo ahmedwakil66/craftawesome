@@ -5,7 +5,8 @@ async function countdownDivHandler() {
     for (let i = 2; i >= -1; i--) {
         await slowMo(1000);
         if (i === -1) {
-            startQuiz()
+            startQuiz();
+            quizTimer(true);
             break;
         }
         document.getElementById('count').textContent = i;
@@ -77,4 +78,27 @@ function handleOptionClick(e){
     //send selected options to the givenAnswer object
     //this will be used to check if the use selected ans is correct
     givenAnswers[e.target.getAttribute('key')] = e.target.textContent;
+}
+
+
+
+//monitoring total time the user takes
+function quizTimer(state){
+    let elapsedSeconds = 0;
+
+    if(state === false){
+        clearInterval(timer);
+        return;
+    }
+    
+    timer = setInterval(()=>{
+        let seconds = `${(elapsedSeconds % 60)}`;
+        let minutes = `${Math.floor((elapsedSeconds / 60))}`;
+
+        let curSecond = seconds.length === 1 ? `0${seconds}` : seconds;
+        let curMinute = minutes.length === 1 ? `0${minutes}` : minutes;
+
+        timerDiv.textContent = `${curMinute}:${curSecond}`
+        elapsedSeconds++;
+    }, 1000)
 }
