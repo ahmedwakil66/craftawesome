@@ -1,26 +1,88 @@
-*{margin: 0; padding: 0; box-sizing: border-box;}
-body{background-image: linear-gradient(to right, #393939, gray, gray, gray, gray, gray, #393939);}
-.wraper{display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;
-    max-width: 71%; margin: 2rem auto;}
-.card{
-    max-width: 350px; border: 2px solid black; text-decoration: none;
-    background-color: bisque; display: block; color: black; transition: .3s;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.card p{
-    font-size: 1.5rem; font-weight: bold; text-align: center;
-    padding: .5rem 0; letter-spacing: 1px; opacity: .8;
+
+body {
+    background-image: linear-gradient(to right, #393939, gray, gray, gray, gray, gray, #393939);
 }
-.card:hover p{
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    max-width: 71%;
+    margin: 2rem auto;
+}
+
+.card {
+    max-width: 350px;
+    border: 2px solid black;
+    text-decoration: none;
+    background-color: bisque;
+    display: block;
+    color: black;
+    transition: .3s;
+}
+
+.card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: .5rem 0;
+    letter-spacing: 1px;
+    opacity: .8;
+}
+
+.card:hover p {
     opacity: 1;
 }
-.card:hover{transform: scale(1.05);}
 
-.card:hover{transform: scale(1.05);}
-@media screen and (max-width: 1115px) {
-    .wraper{max-width: 95%;}
-    .card{max-width: 300px;}
+.card:hover {
+    transform: scale(1.05);
 }
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 1115px) {
+    .wrapper {
+        max-width: 95%;
+    }
+
+    .card {
+        max-width: 300px;
+    }
+}
+
 @media screen and (max-width: 680px) {
-    .wraper{max-width: 95%;}
-    .card{max-width: 350px;}
+    .wrapper {
+        max-width: 95%;
+        gap: 1rem;
+    }
+
+    .card {
+        max-width: 165px;
+    }
+
+    .card p {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .wrapper{
+        gap: 10px;
+    }
+
+    .card {
+        max-width: 160px;
+    }
+
+    .card p {
+        font-size: 11px;
+    }
 }
